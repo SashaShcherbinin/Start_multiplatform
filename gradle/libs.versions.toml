@@ -1,0 +1,73 @@
+[versions]
+android-gradle = "8.9.1"
+compose-multiplatform = "1.7.3"
+
+coroutines = "1.10.1"
+koin = "4.0.0"
+kotlin = "2.1.10"
+ktor = "3.0.3"
+
+[libraries]
+gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+gradle-android = { module = "com.android.tools.build:gradle", version.ref = "android-gradle" }
+gradle-compose-compiler = { module = "org.jetbrains.compose:org.jetbrains.compose.gradle.plugin", version.ref = "compose-multiplatform" }
+gradle-kotlin-compose = { module = "org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin", version.ref = "kotlin" }
+gradle-kotlin-multiplatform = { module = "org.jetbrains.kotlin.multiplatform:org.jetbrains.kotlin.multiplatform.gradle.plugin", version.ref = "kotlin" }
+
+google-firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics", version = "19.4.2" }
+google-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx", version = "19.4.2" }
+
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-jvm = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "coroutines" }
+
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
+
+compose-navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version = "2.8.0-alpha12" }
+compose-viewModel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version = "2.8.4" }
+compose-image-async = { module = "io.coil-kt.coil3:coil-compose", version = "3.1.0" }
+compose-image-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", version = "3.1.0" }
+compose-android-activity = { module = "androidx.activity:activity-compose", version = "1.10.1" }
+compose-android-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version = "1.7.8" }
+
+kotlin-xml-builder = { module = "org.redundent:kotlin-xml-builder", version = "1.9.1" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.6.0" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.7.3" }
+
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor-client-ios = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-jvm = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+mockito-mockk = { module = "io.mockk:mockk", version = "1.13.16" }
+coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+
+[plugins]
+app-application = { id = "app-application-module" }
+app-library = { id = "app-library-module" }
+app-compose = { id = "app-compose-module" }
+kotlin-library = { id = "kotlin-library-module" }
+
+google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version = "3.0.3" }
+google-firebase-performance = { id = "com.google.firebase.firebase-perf", version = "1.4.2" }
+google-devtools-ksp = { id = "com.google.devtools.ksp", version = "2.1.10-1.0.29" }
+
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+[bundles]
+test-common = [
+    "coroutines-test",
+    "kotlin-test",
+    "mockito-mockk",
+]
+
+network = [
+    "ktor-client-core",
+    "ktor-content-negotiation",
+    "ktor-logging",
+    "ktor-serialization-json",
+]
