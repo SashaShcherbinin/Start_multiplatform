@@ -1,5 +1,6 @@
 package app
 
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.compose.NavHost
@@ -18,15 +19,17 @@ import feature.user.presentation.UserScreen
 @Composable
 fun App() {
     AppTheme {
-        val navController = rememberNavController()
-        CompositionLocalProvider(LocalNavigation provides navController) {
-            NavHost(navController, startDestination = NavSplash) {
-                composable<NavSplash> { SplashScreen() }
-                composable<NavDashboard> { DashboardScreen() }
-                composable<NavUser> { backStackEntry ->
-                    UserScreen(
-                        userId = backStackEntry.toRoute<NavUser>().userId,
-                    )
+        Surface {
+            val navController = rememberNavController()
+            CompositionLocalProvider(LocalNavigation provides navController) {
+                NavHost(navController, startDestination = NavSplash) {
+                    composable<NavSplash> { SplashScreen() }
+                    composable<NavDashboard> { DashboardScreen() }
+                    composable<NavUser> { backStackEntry ->
+                        UserScreen(
+                            userId = backStackEntry.toRoute<NavUser>().userId,
+                        )
+                    }
                 }
             }
         }
