@@ -5,10 +5,8 @@ plugins {
     id("org.jetbrains.kotlin.multiplatform")
 }
 
-val moduleSpace = "app"
-
 android {
-    this.namespace = moduleSpace
+    this.namespace = "app"
     defaultConfig {
         compileSdk = 35
         minSdk = 23
@@ -28,14 +26,7 @@ kotlin {
         }
     }
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = moduleSpace
-            isStatic = true
-        }
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 }

@@ -13,5 +13,10 @@ kotlin {
             implementation(projects.base.domain)
             implementation(libs.koin.core)
         }
+        iosMain {
+            dependencies {
+                implementation(libs.koin.core)
+            }
+        }
     }
 }
